@@ -1,16 +1,21 @@
 fileFormatVersion: 2
-guid: 8afd8aec89ae6af4caf781f04cd929f2
+guid: 58bac89bea9f28241a549b6d650fe2cb
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Scotch
+    100004: Tape_roll
     400000: //RootNode
-    2100000: 'Material #13'
-    2100002: 'Material #14'
-    2100004: 'Material #15'
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Pen
+    400002: Scotch
+    400004: Tape_roll
+    2100000: No Name
+    2300000: Scotch
+    2300002: Tape_roll
+    3300000: Scotch
+    3300002: Tape_roll
+    4300000: Tape_roll
+    4300002: Scotch
   externalObjects: {}
   materials:
     importMaterials: 1

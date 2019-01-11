@@ -21,7 +21,7 @@ public class ModelAddForce : MonoBehaviour {
         rb.AddForce(new Vector3(0, 1, 0) * startJumpingForce);
     }
 
-    void Update ()
+    void FixedUpdate ()
     {
         rb.AddForce(new Vector3(0, 1, 0) * smothingforce);
     }

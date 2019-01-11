@@ -1,21 +1,18 @@
 fileFormatVersion: 2
-guid: cdf521fae12a7004186a864ef7c51a17
+guid: dbdf4c76b3f6f8a4399ac24572f8a769
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Pencil_case
-    100004: Zipper
     400000: //RootNode
-    400002: Pencil_case
-    400004: Zipper
-    2100000: No Name
-    2300000: Pencil_case
-    2300002: Zipper
-    3300000: Pencil_case
-    3300002: Zipper
+    2100000: 'Material #38'
+    2100002: 'Material #37'
+    2100004: 'Material #36'
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Pencil_case
-    4300002: Zipper
+    7400000: Take 001
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -67,8 +64,8 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -92,7 +89,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
