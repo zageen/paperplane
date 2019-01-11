@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Swipe : MonoBehaviour
 {
@@ -16,10 +17,17 @@ public class Swipe : MonoBehaviour
 
     public float forceMultiplier = 5;
     public float rotationSpeed;
+    public float returnInOrginialRotationSpeed;
 
     public float specialCollectibleCollected;
     public float coinCollected;
 
+    public float windCooldown;
+    private float timeStockValue;
+
+    public Text debugSwipeVector;
+    public Text debugFirstPresPos;
+    public Text debugSecondPresPos;
 
     private Vector2 currentPosition;
 
@@ -37,14 +45,17 @@ public class Swipe : MonoBehaviour
 
     public void Start()
     {
-
+        timeStockValue = windCooldown;
     }
 
+ 
 
-    private void Update()
+
+    void Update()
     {
-
-        dragTime = dragTime + Time.deltaTime;
+        
+        timeStockValue += Time.deltaTime;
+        
         #region Keyboardcontrol
 
         if (Input.GetKey(KeyCode.UpArrow))
@@ -70,62 +81,80 @@ public class Swipe : MonoBehaviour
         else
         {
             isDraging = false;
-            totalTime = PlaneModele.transform.rotation.eulerAngles.sqrMagnitude / (rotationSpeed * 25000f);
+            totalTime = PlaneModele.transform.rotation.eulerAngles.sqrMagnitude / (rotationSpeed * (50000f*returnInOrginialRotationSpeed));
             firstRotation = PlaneModele.transform.rotation;
             actualTime = 0f;
         }
 
         #endregion
 
-
+        dragTime = dragTime + Time.deltaTime;
 
         #region phone controle
+
         if (Input.touchCount == 1)
         {
-
-            var touch = Input.touches[0];
-            switch (touch.phase)
-            {
-                case TouchPhase.Began:
-                    // stockage du point de départ
-                    secondPressPos = touch.position;
-                    firstPressPos = touch.position;
-                    break;
-                case TouchPhase.Moved:
-                    // stockage du point de fin
-                    isDraging = true;
-                    secondPressPos = touch.position;
-                    if (dragTime > maxDragTime)
-                    {
-                        isDraging = false;
+            
+                var touch = Input.touches[0];
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        // stockage du point de départ
+                        secondPressPos = touch.position;
+                        firstPressPos = touch.position;
                         dragTime = 0;
-                    }
-                    break;
-                case TouchPhase.Ended:
-                    isDraging = false;
-                    totalTime = PlaneModele.transform.rotation.eulerAngles.sqrMagnitude / (rotationSpeed * 50f);
-                    firstRotation = PlaneModele.transform.rotation;
-                    actualTime = 0f;
-                    break;
+                        
+                        break;
+                    case TouchPhase.Moved:
+                        // stockage du point de fin
+                        isDraging = true;
 
-            }
+                        secondPressPos = touch.position;
+                        Debug.Log(firstPressPos);
+                        Debug.Log(secondPressPos);
+                        if (dragTime > maxDragTime)
+                        {
+                            isDraging = false;
+                            dragTime = 0;
+                            
+                        }
+                        //si la personne prend trop de temps
+
+                        break;
+                    case TouchPhase.Ended:
+                        isDraging = false;
+                        secondPressPos = touch.position;
+                        firstPressPos = touch.position;
+                        totalTime = PlaneModele.transform.rotation.eulerAngles.sqrMagnitude / (rotationSpeed * 2500f);
+                        firstRotation = PlaneModele.transform.rotation;
+                        actualTime = 0f;
+                        timeStockValue = 0;
+                        break;
+
+                }
+            
+            
         }
 
-        swipeVector = new Vector3((secondPressPos.x - firstPressPos.x), secondPressPos.y - firstPressPos.y, 0);//determine le vecteur que l'avion va prendre 
+
+
+        swipeVector = new Vector3(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y, 0);//determine le vecteur que l'avion va prendre 
+
+        swipeVector.Normalize();
         #endregion
 
         if (isDraging == true)
         {
             //direction de l'avion
-            rb.AddForce(swipeVector * forceMultiplier);
+            rb.AddForce(swipeVector * forceMultiplier, ForceMode.VelocityChange);
             #region rotateplane
             if (swipeVector.x > 0)
             {
-                PlaneModele.transform.Rotate(new Vector3(0, 0, -1) * rotationSpeed);
+                PlaneModele.transform.Rotate(new Vector3(0, 0, -2) * rotationSpeed);
             }
             else if (swipeVector.x < 0)
             {
-                PlaneModele.transform.Rotate(new Vector3(0, 0, 1) * rotationSpeed); ;
+                PlaneModele.transform.Rotate(new Vector3(0, 0, 2) * rotationSpeed); ;
             }
             if (swipeVector.y > 0)
             {
@@ -140,16 +169,11 @@ public class Swipe : MonoBehaviour
         if (isDraging == false)
         {
             actualTime += Time.deltaTime;
-            PlaneModele.transform.rotation = Quaternion.Lerp(firstRotation, Quaternion.identity, actualTime / totalTime);
+            PlaneModele.transform.rotation = Quaternion.Lerp(firstRotation, Quaternion.identity, (actualTime / totalTime)*3);
         }
 
         #endregion
-        //si la personne prend trop de temps
-        if (dragTime > maxDragTime)
-        {
-            isDraging = false;
-
-        }
+        
 
 
     }
