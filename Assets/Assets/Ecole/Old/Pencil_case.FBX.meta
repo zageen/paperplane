@@ -1,16 +1,21 @@
 fileFormatVersion: 2
-guid: 8afd8aec89ae6af4caf781f04cd929f2
+guid: cdf521fae12a7004186a864ef7c51a17
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Pencil_case
+    100004: Zipper
     400000: //RootNode
-    2100000: 'Material #13'
-    2100002: 'Material #14'
-    2100004: 'Material #15'
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Pen
+    400002: Pencil_case
+    400004: Zipper
+    2100000: No Name
+    2300000: Pencil_case
+    2300002: Zipper
+    3300000: Pencil_case
+    3300002: Zipper
+    4300000: Pencil_case
+    4300002: Zipper
   externalObjects: {}
   materials:
     importMaterials: 1

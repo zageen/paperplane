@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f5dc6fe6210f66448b7d3d3af15c068b
+guid: 7711129ca42a0ef48950b7863fab07ef
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -8,7 +8,7 @@ ModelImporter:
     2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Desk
+    4300000: Box001
   externalObjects: {}
   materials:
     importMaterials: 1

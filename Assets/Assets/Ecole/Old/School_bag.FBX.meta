@@ -1,16 +1,14 @@
 fileFormatVersion: 2
-guid: 8afd8aec89ae6af4caf781f04cd929f2
+guid: 3d92473a4ac4fde44bd280e630868c58
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: 'Material #13'
-    2100002: 'Material #14'
-    2100004: 'Material #15'
+    2100000: No Name
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Pen
+    4300000: School_bag
   externalObjects: {}
   materials:
     importMaterials: 1

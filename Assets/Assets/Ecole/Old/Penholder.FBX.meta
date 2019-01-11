@@ -1,16 +1,21 @@
 fileFormatVersion: 2
-guid: 8afd8aec89ae6af4caf781f04cd929f2
+guid: 05fb3d0bbb62cc04985f057136dff5c9
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: 'Material #13'
-    2100002: 'Material #14'
-    2100004: 'Material #15'
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Pen
+    100000: Feather
+    100002: Inkwell
+    100004: //RootNode
+    400000: Feather
+    400002: Inkwell
+    400004: //RootNode
+    2100000: No Name
+    2300000: Feather
+    2300002: Inkwell
+    3300000: Feather
+    3300002: Inkwell
+    4300000: Inkwell
+    4300002: Feather
   externalObjects: {}
   materials:
     importMaterials: 1
