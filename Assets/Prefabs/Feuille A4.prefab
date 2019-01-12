@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33667566224662468}
   - component: {fileID: 23630620906886312}
   m_Layer: 0
-  m_Name: Paper_sheet (2)
+  m_Name: Feuille A4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

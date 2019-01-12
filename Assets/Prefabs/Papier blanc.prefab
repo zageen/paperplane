@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33952322557429916}
   - component: {fileID: 23414341066483648}
   m_Layer: 0
-  m_Name: Paper_sheet
+  m_Name: Papier blanc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

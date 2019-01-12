@@ -11,21 +11,28 @@ public class ModelAddForce : MonoBehaviour {
     public float smothingforce;
     [Range(0f, 1f)]
     public float startJumpingForce;
- 
+    private bool isPlaneAlive;
+    public float coinCollected;
 
-  
+
+
     private void Start()
     {
-
         rb = GetComponent<Rigidbody>();
         rb.AddForce(new Vector3(0, 1, 0) * startJumpingForce);
     }
 
-    void FixedUpdate ()
+    void Update ()
     {
-        rb.AddForce(new Vector3(0, 1, 0) * smothingforce);
+        isPlaneAlive = GameObject.Find("Plane").GetComponent<Swipe>().planeIsAlive;
+        if (isPlaneAlive == true)
+        {
+            rb.AddForce(new Vector3(0, 1, 0) * smothingforce);
+        }
+        
+        
     }
-    public float coinCollected;
+    
 
     //gère le ramassage de pièce
     public void OnTriggerEnter(Collider other)
