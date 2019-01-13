@@ -70,9 +70,6 @@ public class Swipe : MonoBehaviour
     void Update()
     {
         actualTimeToStartLevel = actualTimeToStartLevel + Time.deltaTime;
-        debugactualTimeToStartLevel.text = "actualTimeToStartLevel" + actualTimeToStartLevel;
-        debugswipeVectorX.text = "swipeVectorX :" + " " + swipeVector.x;
-        debugswipeVectorY.text = "swipeVectorY :" + " "+swipeVector.y;
         if (Input.touchCount == 1 && shouldLevelStart == false)
         {
 
