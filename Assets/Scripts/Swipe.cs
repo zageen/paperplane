@@ -17,6 +17,7 @@ public class Swipe : MonoBehaviour
     public AudioSource cameraMusique;
     public bool planeIsAlive;
     public bool shouldLevelStart = false;
+    public bool isPlaneAnimationStarted = false;
 
     private Animator anim;
 
@@ -93,11 +94,15 @@ public class Swipe : MonoBehaviour
             if(swipeVector.x>0 && swipeVector.y>0)
             {
                 anim.Play("PlaneStartAnimation");
-            }
+                isPlaneAnimationStarted= true;
+
+
+}
         }
         if (actualTimeToStartLevel >timeToStartLevel&& shouldLevelStart == false)
         {
             anim.Play("PlaneStartAnimation");
+            isPlaneAnimationStarted = true;
         }
         if ( shouldLevelStart == true)
         {

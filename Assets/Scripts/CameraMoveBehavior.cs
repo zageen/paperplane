@@ -1,30 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class CameraMoveBehavior : MonoBehaviour {
 
+    public Animator anim;
     public float speed;
     public bool isPlaneAlive;
     public bool isLevelStarted = false;
+    public bool isPlaneAnimStarted = false;
     public Component swipeScript;
     public Transform planeTransform;
 
-    public void Start()
-    {
-        swipeScript = GameObject.Find("Plane").GetComponent<Swipe>();
-    }
+
 
     void Update()
-
     {
-
+        anim = GetComponent<Animator>();
+        isPlaneAnimStarted = GameObject.Find("Plane").GetComponent<Swipe>().isPlaneAnimationStarted;
         isLevelStarted = GameObject.Find("Plane").GetComponent<Swipe>().shouldLevelStart;
         isPlaneAlive = GameObject.Find("Plane").GetComponent<Swipe>().planeIsAlive;
-        if (isLevelStarted == false)
+        if(isPlaneAnimStarted == true && isLevelStarted != true)
         {
-            float dist = Vector3.Distance(planeTransform.position, transform.position);
-            transform.position = Vector3.MoveTowards(transform.position, planeTransform.position, dist);
+            anim.Play("CameraStartAnimation");
         }
         if (isLevelStarted == true)
         {
@@ -39,4 +38,16 @@ public class CameraMoveBehavior : MonoBehaviour {
         }
 
     }
+
+    void DestroyAnimator()
+    {
+        StartCoroutine(TimeToDeactivateAnimator());
+    }
+
+    IEnumerator TimeToDeactivateAnimator()
+    {
+        yield return new WaitForSeconds(0.001f);
+        anim.enabled = false;
+    }
 }
+
