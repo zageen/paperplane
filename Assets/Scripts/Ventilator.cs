@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Ventilator : MonoBehaviour {
 
-    public GameObject rotator;
-
 	void Start ()
     {
 		
