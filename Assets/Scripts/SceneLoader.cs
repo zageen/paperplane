@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SceneLoader : MonoBehaviour {
 
-
     //Menu Manager
     public GameObject creditPanel;
     public GameObject levelselectPanel;
@@ -21,7 +20,7 @@ public class SceneLoader : MonoBehaviour {
 
     public void Quit()
     {
-     //   UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
     public void LoadLevelSelect()
@@ -43,8 +42,9 @@ public class SceneLoader : MonoBehaviour {
 
     public void LoadCredits()
     {
-        titlePanel.SetActive(false);
         creditPanel.SetActive(true);
+        titlePanel.SetActive(false);
+
 
         loadedPanel = LoadedPanel.Credits;
     }
@@ -79,5 +79,8 @@ public class SceneLoader : MonoBehaviour {
         Title
     }
 
+    public void ChangeVolume()
+    {
 
+    }
 }

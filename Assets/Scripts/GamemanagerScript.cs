@@ -25,6 +25,7 @@ public class GamemanagerScript : MonoBehaviour {
     public float specialCoinMultiplier = 200;
     public Text scoreText;
     public float scoreMultiplicator;
+    public bool isGameStarted;
     
 
 
@@ -34,25 +35,21 @@ public class GamemanagerScript : MonoBehaviour {
         
         isGameRunning = true;
         currentSceneID = SceneManager.GetActiveScene().buildIndex;
-       
+        
 
     }
 	
 
 	void Update ()
     {
+        isGameStarted = planeModele.GetComponent<Swipe>().shouldLevelStart;
 
-		if(playerLife < 0)
+        if (isGameStarted == true)
         {
-            SceneManager.LoadScene(currentSceneID);
+            pieceCollectee = planeModele.GetComponent<ModelAddForce>().coinCollected;
+            score = pieceCollectee * coinMultiplier  + Time.deltaTime * scoreMultiplicator;
+            scoreText.text = "score :" + score.ToString();
         }
-        // penser a faire système checkpoint
-
-        pieceCollectee = planeModele.GetComponent<ModelAddForce>().coinCollected;
-        score = pieceCollectee * coinMultiplier + specialCollectibleCollected * specialCoinMultiplier + Time.time*scoreMultiplicator;
-        scoreText.text = "score :" + score.ToString();
-        
-
 	}
     private void OnCollisionEnter(Collision collision)
     {
@@ -62,11 +59,5 @@ public class GamemanagerScript : MonoBehaviour {
             SceneManager.LoadScene(currentSceneID);
         }
     }
-    private void OnTriggerEnter(Collider collider)
-    {
-        if ( collider.name == "LevelEnd" )
-        {
-            SceneManager.LoadScene(currentSceneID+1);
-        }
-    }
+   
 }
