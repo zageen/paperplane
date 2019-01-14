@@ -1,21 +1,36 @@
 fileFormatVersion: 2
-guid: a417440102866aa4b98a975eaa5a7ecc
+guid: e7ae088bbc1499b40b38816c79178b53
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: Ventilator
-    100004: Wings
+    100004: Wing_001
+    100006: Wing_002
+    100008: Wing_003
+    100010: Wing_004
     400000: //RootNode
     400002: Ventilator
-    400004: Wings
+    400004: Wing_001
+    400006: Wing_002
+    400008: Wing_003
+    400010: Wing_004
     2100000: No Name
     2300000: Ventilator
-    2300002: Wings
+    2300002: Wing_001
+    2300004: Wing_002
+    2300006: Wing_003
+    2300008: Wing_004
     3300000: Ventilator
-    3300002: Wings
+    3300002: Wing_001
+    3300004: Wing_002
+    3300006: Wing_003
+    3300008: Wing_004
     4300000: Ventilator
-    4300002: Wings
+    4300002: Wing_001
+    4300004: Wing_002
+    4300006: Wing_003
+    4300008: Wing_004
   externalObjects: {}
   materials:
     importMaterials: 1

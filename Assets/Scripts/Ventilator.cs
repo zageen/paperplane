@@ -16,7 +16,7 @@ public class Ventilator : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.attachedRigidbody)
+        if (other.attachedRigidbody )
             other.attachedRigidbody.AddForce(Vector3.right * 10);
     }
 }
