@@ -51,13 +51,6 @@ public class GamemanagerScript : MonoBehaviour {
             scoreText.text = "score :" + score.ToString();
         }
 	}
-    private void OnCollisionEnter(Collision collision)
-    {
-        if ( collision.gameObject.tag == "Ennemy")
-        {
-            playerLife = playerLife - 1;
-            SceneManager.LoadScene(currentSceneID);
-        }
-    }
+ 
    
 }
