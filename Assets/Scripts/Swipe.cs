@@ -4,24 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
 public class Swipe : MonoBehaviour
 {
     #region variables
     public GameObject Plane;
+    public GameObject gameManager;
     public Rigidbody rb;
     public GameObject PlaneModele;
-    public GameObject MainCamera;
     public MeshCollider meshCollider;
+    public Canvas endScoreCanvas;
 
-    public AudioSource cameraMusique;
+    public Text yourScore;
+    public float score;
+    public Text highScoreText;
+    public float highScore;
     public bool planeIsAlive;
     public bool shouldLevelStart = false;
     public bool isPlaneAnimationStarted = false;
+    public bool isLevelEnded = false;
 
     private Animator anim;
 
-    public float swipeDistanceThreshold = 150;
 
     public float dragTime;
     public float maxDragTime = 0.5f;
@@ -31,10 +36,8 @@ public class Swipe : MonoBehaviour
     public float rotationSpeed;
     public float returnInOrginialRotationSpeed;
 
-    public float specialCollectibleCollected;
     public float coinCollected;
 
-    public float windCooldown;
     private float timeStockValue;
     public float timeToStartLevel = 9;
     public float actualTimeToStartLevel = 0;
@@ -51,7 +54,6 @@ public class Swipe : MonoBehaviour
     Vector3 swipeVector;
 
     private bool isDraging = false;
-    public AnimationCurve animationCurve;
 
     private float actualTime;
     private float totalTime;
@@ -60,15 +62,16 @@ public class Swipe : MonoBehaviour
 
     public void Start()
     {
-        timeStockValue = windCooldown;
+
         planeIsAlive = true;
-        cameraMusique = MainCamera.GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         meshCollider.enabled = false;
     }
 
     void Update()
     {
+        score = gameManager.GetComponent<GamemanagerScript>().score;
+        
         actualTimeToStartLevel = actualTimeToStartLevel + Time.deltaTime;
         if (Input.touchCount == 1 && shouldLevelStart == false)
         {
@@ -228,6 +231,28 @@ public class Swipe : MonoBehaviour
     {
         yield return new WaitForSeconds(0.001f);
         anim.enabled = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "LevelEnd")
+        {
+            StartCoroutine(LevelEnd());
+            
+        }
+    }
+
+    IEnumerator LevelEnd()
+    {
+        //sauvegarder score ici
+        shouldLevelStart = false;
+        isLevelEnded = true;
+        //charger ici le highScore =
+        yourScore.text = "your score is: " + score;
+        highScoreText.text = "Highscore : " +highScore;
+        yield return new WaitForSeconds(10);
+
+        SceneManager.LoadScene("0");
     }
 }
 
