@@ -10,7 +10,7 @@ public class GamemanagerScript : MonoBehaviour {
     // gère toute les scènes et la vie du joueur + scoring , sauvegarde du scoring.
 
     public int playerLife = 3;
-   
+
     public bool isGameRunning;
     public int currentSceneID;
     public GameObject player;
@@ -23,6 +23,10 @@ public class GamemanagerScript : MonoBehaviour {
     public int pieceCollectee;
     public float coinMultiplier = 50;
     public float specialCoinMultiplier = 200;
+
+    public GameObject pauseUI;
+    public GameObject inGameCanvas;
+
 
 
 
@@ -42,28 +46,33 @@ public class GamemanagerScript : MonoBehaviour {
     private int totalPieceCollectee;
 
     public DataManagerDeux dataManager;
-    
 
 
 
-    void Start ()
+
+    void Start()
     {
         highScore = dataManager.highScore;
+
+
+    }
+    private void Awake()
+    {
         isGameRunning = true;
         currentSceneID = SceneManager.GetActiveScene().buildIndex;
 
     }
-	
 
-	void Update ()
+
+    void Update()
     {
         isGameStarted = planeModele.GetComponent<Swipe>().shouldLevelStart;
 
         if (isGameStarted == true)
         {
             pieceCollectee = planeModele.GetComponent<ModelAddForce>().coinCollected;
-            score = pieceCollectee * coinMultiplier  +score + Time.deltaTime * scoreMultiplicator;
-            scoreText.text=endScoreText.text = "score :" + score.ToString();
+            score = pieceCollectee * coinMultiplier + score + Time.deltaTime * scoreMultiplicator;
+            scoreText.text = endScoreText.text = "score :" + score.ToString();
         }
         totalPièceText.text = "nombre de pièces : " + (totalPièce + pieceCollectee).ToString();
         totalPieceCollectee = pieceCollectee;
@@ -72,9 +81,29 @@ public class GamemanagerScript : MonoBehaviour {
             highScore = score;
         }
         highscoreText.text = "Highscore : " + highScore;
-	}
+    }
 
- 
+    public void OnClickPause()
+    {
+        Time.timeScale = 0;
+        pauseUI.SetActive(true);
+        inGameCanvas.SetActive(false);
+    }
+
+    public void OnclickPlay()
+    {
+        Time.timeScale = 1;
+        pauseUI.SetActive(false);
+        inGameCanvas.SetActive(true);
+    }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void Retry()
+    {
+        SceneManager.LoadScene(1);
+    }
 
 
 

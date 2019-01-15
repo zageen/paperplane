@@ -27,7 +27,8 @@ public class Swipe : MonoBehaviour
 
 
     private Animator anim;
-
+    public GameObject deathCanvas;
+    public GameObject inGameCanvas;
 
     public float dragTime;
     public float maxDragTime = 0.5f;
@@ -64,9 +65,11 @@ public class Swipe : MonoBehaviour
 
     public void Start()
     {
-
-        planeIsAlive = true;
         anim = GetComponent<Animator>();
+    }
+    public void Awake()
+    {
+        planeIsAlive = true;
         meshCollider.enabled = false;
     }
 
@@ -216,6 +219,9 @@ public class Swipe : MonoBehaviour
                 planeIsAlive = false;
                 swipeVector = Vector3.zero;
                 planeIsDead = true;
+                deathCanvas.SetActive(true);
+                inGameCanvas.SetActive(false);
+
             }
         }
     }
