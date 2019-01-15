@@ -5,11 +5,14 @@ using UnityEngine;
 public class BoulettePapier : MonoBehaviour {
 
     public GameObject boulette;
+    public GameObject barrier;
 
     // Use this for initialization
     void Start()
     {
-        boulette.SetActive(false);
+        boulette.GetComponent<MeshRenderer>().enabled = false;
+        boulette.GetComponent<MeshCollider>().enabled = false;
+        barrier.GetComponent<BoxCollider>().enabled = true;
     }
 
 	
@@ -20,7 +23,9 @@ public class BoulettePapier : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        boulette.SetActive(true);
+        barrier.GetComponent<BoxCollider>().enabled = false;
+        boulette.GetComponent<MeshRenderer>().enabled = true;
+        boulette.GetComponent<MeshCollider>().enabled = true;
 
     }
 }
