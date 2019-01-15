@@ -13,9 +13,18 @@ public class SceneLoader : MonoBehaviour {
 
     private LoadedPanel loadedPanel;
 
+    public UnityEngine.UI.Slider slider;
+    public UnityEngine.UI.Dropdown dropdown;
+    int quality;
+
+    public void Start()
+    {
+        InitiateTitle();
+    }
+
     public void LoadLevel()
     {
-        SceneManager.LoadScene("Scenetest1");
+        SceneManager.LoadScene("SceneTrail");
     }
 
     public void Quit()
@@ -81,6 +90,22 @@ public class SceneLoader : MonoBehaviour {
 
     public void ChangeVolume()
     {
+        AudioListener.volume = slider.value;
+    }
 
+    public void ChangeQuality()
+    {
+        quality = dropdown.value;
+        QualitySettings.SetQualityLevel(quality, true);
+    }
+
+    public void InitiateTitle()
+    {
+      
+        creditPanel.SetActive(false);
+        levelselectPanel.SetActive(false);
+        optionsPanel.SetActive(false);
+        titlePanel.SetActive(true);
+        loadedPanel = LoadedPanel.Title;
     }
 }
