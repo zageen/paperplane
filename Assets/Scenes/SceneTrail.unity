@@ -10866,12 +10866,12 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1190866165}
     m_Modifications:
     - target: {fileID: 224667788478234578, guid: a9c921a94ba535f4f9468ddd2512fb36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224667788478234578, guid: a9c921a94ba535f4f9468ddd2512fb36,
         type: 2}
@@ -10911,7 +10911,7 @@ Prefab:
     - target: {fileID: 224667788478234578, guid: a9c921a94ba535f4f9468ddd2512fb36,
         type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224667788478234578, guid: a9c921a94ba535f4f9468ddd2512fb36,
         type: 2}
@@ -10965,9 +10965,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1583471088471530, guid: a9c921a94ba535f4f9468ddd2512fb36, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114442883979481834, guid: a9c921a94ba535f4f9468ddd2512fb36,
+        type: 2}
+      propertyPath: flash
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114442883979481834, guid: a9c921a94ba535f4f9468ddd2512fb36, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: a9c921a94ba535f4f9468ddd2512fb36, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &1094114108 stripped
@@ -11225,6 +11231,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7ae088bbc1499b40b38816c79178b53, type: 3}
   m_IsPrefabAsset: 0
+--- !u!114 &1127485554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114049632944935882, guid: a9c921a94ba535f4f9468ddd2512fb36,
+    type: 2}
+  m_PrefabInternal: {fileID: 1087156710}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1137996520 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: f5dc6fe6210f66448b7d3d3af15c068b,
@@ -11499,6 +11511,7 @@ GameObject:
   - component: {fileID: 1190866165}
   - component: {fileID: 1190866164}
   - component: {fileID: 1190866163}
+  - component: {fileID: 1190866166}
   m_Layer: 0
   m_Name: LevelEndCollider
   m_TagString: LevelEnd
@@ -11532,12 +11545,27 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1190866162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.7, y: 18.7, z: 646.9}
-  m_LocalScale: {x: 10, y: 20, z: 1}
-  m_Children: []
+  m_LocalPosition: {x: -7.23, y: 11.26, z: 60.19}
+  m_LocalScale: {x: 24.67, y: 20, z: 1}
+  m_Children:
+  - {fileID: 1849774586}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190866166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1190866162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2421a83b2378c4e871945991e33f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCG: {fileID: 1849774582}
+  speed: 0.4
+  flash: 0
 --- !u!1001 &1212287069
 Prefab:
   m_ObjectHideFlags: 0
@@ -15279,6 +15307,16 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: f5dc6fe6210f66448b7d3d3af15c068b, type: 3}
+--- !u!225 &1849774582 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 225770531817190486, guid: a9c921a94ba535f4f9468ddd2512fb36,
+    type: 2}
+  m_PrefabInternal: {fileID: 1087156710}
+--- !u!224 &1849774586 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 224667788478234578, guid: a9c921a94ba535f4f9468ddd2512fb36,
+    type: 2}
+  m_PrefabInternal: {fileID: 1087156710}
 --- !u!1 &1862907656 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: f5dc6fe6210f66448b7d3d3af15c068b,
@@ -15816,14 +15854,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Plane: {fileID: 1964602097}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 799817484}
   rb: {fileID: 1964602103}
   PlaneModele: {fileID: 1964602097}
   meshCollider: {fileID: 470971706}
-  endScoreCanvas: {fileID: 0}
-  yourScore: {fileID: 0}
+  yourScore: {fileID: 1867063401}
   score: 0
-  highScoreText: {fileID: 0}
+  highScoreText: {fileID: 1127485554}
   highScore: 0
   planeIsAlive: 0
   shouldLevelStart: 0

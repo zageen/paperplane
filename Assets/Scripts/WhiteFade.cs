@@ -11,9 +11,7 @@ public class WhiteFade : MonoBehaviour
 
     public CanvasGroup myCG;
     public float speed;
-
-
-    private bool flash = true;
+    public bool flash = false;
 
     void Update()
     {
@@ -25,4 +23,11 @@ public class WhiteFade : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if( other.gameObject.tag == "Player")
+        {
+            flash = true;
+        }
+    }
 }

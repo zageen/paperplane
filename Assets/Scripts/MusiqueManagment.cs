@@ -10,11 +10,12 @@ public class MusiqueManagment : MonoBehaviour {
     public float audioSource1Duration =17.22f;
     public AudioSource audioSource2;
     public AudioSource audioSource3;
-    [SerializeField] private bool isLevelEnded = GameObject.Find("Plane").GetComponent<Swipe>().isLevelEnded;
+    public bool isLevelEnded;
 
     private void Start()
     {
         StartCoroutine(MusiqueManager());
+        isLevelEnded = GameObject.Find("Plane").GetComponent<Swipe>().isLevelEnded;
     }
 
     private void Update()

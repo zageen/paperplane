@@ -14,7 +14,6 @@ public class Swipe : MonoBehaviour
     public Rigidbody rb;
     public GameObject PlaneModele;
     public MeshCollider meshCollider;
-    public Canvas endScoreCanvas;
 
     public Text yourScore;
     public float score;
@@ -30,6 +29,7 @@ public class Swipe : MonoBehaviour
 
     public float dragTime;
     public float maxDragTime = 0.5f;
+    public float timeToSwitchToMenu = 6;
 
 
     public float forceMultiplier = 5;
@@ -209,7 +209,7 @@ public class Swipe : MonoBehaviour
     {
         if (Time.timeSinceLevelLoad > timeToStartLevel || Input.touchCount==1)
         {
-            if (other.gameObject.tag != "Player" && other.gameObject.tag != "Repulsor" && other.gameObject.tag != "Coin" && other.gameObject.tag != "Collectible")
+            if (other.gameObject.tag != "Player" && other.gameObject.tag != "Repulsor" && other.gameObject.tag != "Coin" && other.gameObject.tag != "Collectible" && other.gameObject.tag != "LevelEnd")
             {
                 planeIsAlive = false;
                 swipeVector = Vector3.zero;
@@ -238,7 +238,6 @@ public class Swipe : MonoBehaviour
         if(other.gameObject.tag == "LevelEnd")
         {
             StartCoroutine(LevelEnd());
-            
         }
     }
 
@@ -250,9 +249,9 @@ public class Swipe : MonoBehaviour
         //charger ici le highScore =
         yourScore.text = "your score is: " + score;
         highScoreText.text = "Highscore : " +highScore;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(timeToSwitchToMenu);
 
-        SceneManager.LoadScene("0");
+        SceneManager.LoadScene(0);
     }
 }
 
