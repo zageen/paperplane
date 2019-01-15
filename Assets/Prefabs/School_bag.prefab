@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33074583577354728}
   - component: {fileID: 23963963591294554}
   m_Layer: 0
-  m_Name: Cartable
+  m_Name: School_bag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

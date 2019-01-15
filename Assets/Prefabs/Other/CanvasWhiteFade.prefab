@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myCG: {fileID: 225770531817190486}
   speed: 0.4
+  flash: 0
 --- !u!114 &114507443707225470
 MonoBehaviour:
   m_ObjectHideFlags: 1
