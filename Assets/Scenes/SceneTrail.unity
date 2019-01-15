@@ -2735,6 +2735,7 @@ GameObject:
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669909}
   - component: {fileID: 534669908}
   - component: {fileID: 534669907}
   m_Layer: 0
@@ -2913,6 +2914,8 @@ MonoBehaviour:
   audioSource1: {fileID: 534669906}
   audioSource1Duration: 12.804
   audioSource2: {fileID: 534669908}
+  audioSource3: {fileID: 0}
+  isLevelEnded: 0
 --- !u!82 &534669908
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2924,6 +2927,101 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9854c3f144d48cf4393668eecaf68be0, type: 3}
   m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &534669909
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5895db434a735204a99c40d5c30997e5, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -10865,6 +10963,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1583471088471530, guid: a9c921a94ba535f4f9468ddd2512fb36, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9c921a94ba535f4f9468ddd2512fb36, type: 2}
   m_IsPrefabAsset: 0
@@ -15714,61 +15816,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Plane: {fileID: 1964602097}
+  gameManager: {fileID: 0}
   rb: {fileID: 1964602103}
   PlaneModele: {fileID: 1964602097}
-  MainCamera: {fileID: 534669902}
   meshCollider: {fileID: 470971706}
-  cameraMusique: {fileID: 0}
+  endScoreCanvas: {fileID: 0}
+  yourScore: {fileID: 0}
+  score: 0
+  highScoreText: {fileID: 0}
+  highScore: 0
   planeIsAlive: 0
   shouldLevelStart: 0
   isPlaneAnimationStarted: 0
-  swipeDistanceThreshold: 0
+  isLevelEnded: 0
   dragTime: 0
   maxDragTime: 0.4
   forceMultiplier: 0.8
   rotationSpeed: 1
   returnInOrginialRotationSpeed: 6
-  specialCollectibleCollected: 0
   coinCollected: 0
-  windCooldown: 0.6
   timeToStartLevel: 9
   actualTimeToStartLevel: 0
   debugactualTimeToStartLevel: {fileID: 0}
   debugswipeVectorX: {fileID: 0}
   debugswipeVectorY: {fileID: 0}
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.020659765
-      value: -0.13824177
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.50410163
-      value: 0.95434797
-      inSlope: -0.5802102
-      outSlope: -0.5802102
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.29134318
-      outWeight: 0.463411
-    - serializedVersion: 3
-      time: 1.0123285
-      value: 0.28941554
-      inSlope: -1.1708146
-      outSlope: -1.1708146
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.31707537
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!4 &1964602099
 Transform:
   m_ObjectHideFlags: 0
