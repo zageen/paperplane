@@ -8,8 +8,11 @@ public class DataManagerDeux : MonoBehaviour {
     public static DataManagerDeux Instance;
 
     public string path;
+    public float highScore;
+    public GamemanagerScript gameManager;
 
     public Data data;
+
 	
 	void Awake ()
     {
@@ -39,7 +42,9 @@ public class DataManagerDeux : MonoBehaviour {
             data = new Data();
         }
 
-        data.index = GameManagerDeux.Instance.index;
+        data.Highscore = gameManager.highScore;
+        data.totalPièce = gameManager.totalPièce;
+        
     }
 
 
@@ -74,7 +79,10 @@ public class DataManagerDeux : MonoBehaviour {
     void ExploitData()
     {
 
-        GameManagerDeux.Instance.index = data.index;
+        gameManager.highScore = data.Highscore;
+        gameManager.totalPièce = data.totalPièce;
+        Debug.Log("data is laoded");
+
 
     }
 

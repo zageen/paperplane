@@ -12,7 +12,7 @@ public class ModelAddForce : MonoBehaviour {
     [Range(0f, 1f)]
     public float startJumpingForce;
     private bool isPlaneAlive;
-    public float coinCollected;
+    public int coinCollected;
 
 
 

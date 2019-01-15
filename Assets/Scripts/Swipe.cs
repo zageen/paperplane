@@ -23,6 +23,8 @@ public class Swipe : MonoBehaviour
     public bool shouldLevelStart = false;
     public bool isPlaneAnimationStarted = false;
     public bool isLevelEnded = false;
+    public bool planeIsDead = false;
+
 
     private Animator anim;
 
@@ -213,6 +215,7 @@ public class Swipe : MonoBehaviour
             {
                 planeIsAlive = false;
                 swipeVector = Vector3.zero;
+                planeIsDead = true;
             }
         }
     }

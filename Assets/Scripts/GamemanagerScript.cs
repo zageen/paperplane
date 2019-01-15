@@ -20,22 +20,37 @@ public class GamemanagerScript : MonoBehaviour {
     public GameObject planeModele;
     public float specialCollectibleCollected;
     public float score = 0;
-    public float pieceCollectee;
+    public int pieceCollectee;
     public float coinMultiplier = 50;
     public float specialCoinMultiplier = 200;
+
+
+
     public Text scoreText;
+    public Text endScoreText;
+    public float highScore;
+    public Text highscoreText;
+    public int totalPièce;
+    public Text totalPièceText;
+
+
+
+
+
     public float scoreMultiplicator;
     public bool isGameStarted;
+    private int totalPieceCollectee;
+
+    public DataManagerDeux dataManager;
     
 
 
 
     void Start ()
     {
-        
+        highScore = dataManager.highScore;
         isGameRunning = true;
         currentSceneID = SceneManager.GetActiveScene().buildIndex;
-        
 
     }
 	
@@ -47,10 +62,20 @@ public class GamemanagerScript : MonoBehaviour {
         if (isGameStarted == true)
         {
             pieceCollectee = planeModele.GetComponent<ModelAddForce>().coinCollected;
-            score = pieceCollectee * coinMultiplier  + Time.deltaTime * scoreMultiplicator;
-            scoreText.text = "score :" + score.ToString();
+            score = pieceCollectee * coinMultiplier  +score + Time.deltaTime * scoreMultiplicator;
+            scoreText.text=endScoreText.text = "score :" + score.ToString();
         }
+        totalPièceText.text = "nombre de pièces : " + (totalPièce + pieceCollectee).ToString();
+        totalPieceCollectee = pieceCollectee;
+        if (score > highScore)
+        {
+            highScore = score;
+        }
+        highscoreText.text = "Highscore : " + highScore;
 	}
+
  
-   
+
+
+
 }
